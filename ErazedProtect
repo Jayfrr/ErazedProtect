@@ -1,0 +1,22 @@
+-- Decompiled MoonSec V3 Protected Script
+
+local function fetchScript()
+    local success, result = pcall(function()
+        return game:HttpGet('https://raw.githubusercontent.com/Jayfrr/ErazedPrem/refs/heads/main/ErazedPremiumByJay')
+    end)
+    
+    if success then
+        return result
+    else
+        error("Failed to fetch script: " .. tostring(result))
+    end
+end
+
+local scriptContent = fetchScript()
+local fn = loadstring(scriptContent)
+
+if fn then
+    fn()
+else
+    error("Failed to load script")
+end
